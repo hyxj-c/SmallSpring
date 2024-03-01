@@ -1,2 +1,5 @@
 # Project exclude paths
 /bin/
+/out/
+.idea
+*.iml

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<!-- 实例化对象
+		id:对象的名称
+		class:要实例化对象的类名
+		init-method:创建好对象之后，就调用此对象的初始化方法
+		destroy-method:在对象销毁之前，会调用此对象的销毁方法
+	 -->
+	<bean id="cat" class="demo.Cat"  init-method="init" destroy-method="destroy">
+		<property name="name" value="小花猫"></property>
+	</bean>
+	
+	<bean id="user" class="demo.User">
+		<!-- 给属性赋值
+			name:用set方法赋值的方法名称缩写   例如：name="userDao" -> 就是要调用setUserDao方法赋值
+			ref:引用的容器中对象的id
+		 -->
+		<property name="name" value="小明"></property>
+		<property name="cat" ref="cat"></property>
+	</bean>
+	
+	<!-- 容器扫描路径，用于解析注解
+		base-package:要扫描的包
+	 -->
+	<context base-package="demo"></context>
+	
+</beans>
